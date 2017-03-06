@@ -1,11 +1,13 @@
 package com.example.nanke.retrofit;
 
+import com.example.nanke.retrofit.JavaBean.Joke;
+import com.example.nanke.retrofit.JavaBean.JokeImg;
+import com.example.nanke.retrofit.JavaBean.News;
+
 import java.util.List;
 
-import okhttp3.Response;
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /**
@@ -13,9 +15,24 @@ import retrofit2.http.Query;
  */
 
 public interface Api {
-    @GET("index")
-    Call<News> getNews(@Query("type") String type,@Query("key") String key);
+    /**
+     *
+     * @param type
+     * @param key
+     * @return
+     */
 
-    @GET("")
-    Call<Response>getImage();
+    @GET("index")
+    Call<News> getNews(@Query("type") String type, @Query("key") String key);
+    /**
+     *
+     *  http://api.laifudao.com/open/xiaohua.json
+     */
+    @GET("xiaohua.json")
+    Call<List<Joke>>getJoke();
+    /**
+     * http://api.laifudao.com/open/tupian.json
+     */
+    @GET("tupian.json")
+    Call<JokeImg>getJokeImg();
 }

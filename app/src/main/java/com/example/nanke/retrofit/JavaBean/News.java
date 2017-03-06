@@ -1,4 +1,4 @@
-package com.example.nanke.retrofit;
+package com.example.nanke.retrofit.JavaBean;
 
 import java.util.List;
 
